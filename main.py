@@ -5,6 +5,8 @@ import tkinter as tk
 def calculate_pressed(event):
     med_size = float(medium_entry.get())
     lrg_size = float(large_entry.get())
+    med_cost = float(medium_price_entry.get())
+    lrg_cost = float(large_price_entry.get())
     # calculate area
     medium_area = math.pi * med_size ** 2
     two_medium_area = medium_area * 2
@@ -16,6 +18,8 @@ def calculate_pressed(event):
     # Display values
     medium_result['text'] = "{:.2f} cm2".format(two_medium_area)
     large_result['text'] = "{:.2f} cm2".format(lrg_area)
+    medium_cost_label['text'] = "{:.2f}".format(med_cost*2)
+    large_cost_label['text'] = "{:.2f}".format(lrg_cost)
 
     # display percentages (only for larger with reset)
     if two_medium_area > lrg_area:
@@ -25,6 +29,11 @@ def calculate_pressed(event):
         result_perc_med['text'] = ""
         result_perc_lrg['text'] = "{0:.2f}%".format((result_lrg - 1) * 100)
 
+def cm_to_inch(num):
+    return num/2.54
+
+def inch_to_cm(num):
+    return num*2.54
 
 # initialize window
 window = tk.Tk()
@@ -61,6 +70,16 @@ large_entry.grid(row=2, column=1, pady=2)
 medium_area_label = tk.Label(window, text="Area of 2 Medium: ")
 medium_area_label.grid(row=5, column=0, pady=2)
 
+medium_cost = tk.Label(window, text="Cost: ")
+medium_cost.grid(row=5, column=2, pady=2)
+medium_cost_label = tk.Label(window, text="$0.00")
+medium_cost_label.grid(row=5, column=3, pady=2)
+
+large_cost = tk.Label(window, text="Cost: ")
+large_cost.grid(row=6, column=2, pady=2)
+large_cost_label = tk.Label(window, text="$0.00")
+large_cost_label.grid(row=6, column=3, pady=2)
+
 large_area_label = tk.Label(window, text="Area of Large: ")
 large_area_label.grid(row=6, column=0, pady=2)
 
@@ -71,13 +90,13 @@ large_result = tk.Label(window, text="")
 large_result.grid(row=6, column=1, pady=2)
 
 result_perc_med = tk.Label(window, text="", fg='green')
-result_perc_med.grid(row=5, column=2, pady=2)
+result_perc_med.grid(row=5, column=4, pady=2)
 
 result_perc_lrg = tk.Label(window, text="", fg='green')
-result_perc_lrg.grid(row=6, column=2, pady=2)
+result_perc_lrg.grid(row=6, column=4, pady=2)
 
 calculate_button = tk.Button(text="Calculate", width=10)
-calculate_button.grid(row=7, column=3, pady=3)
+calculate_button.grid(row=7, column=4, pady=3)
 calculate_button.bind("<Button-1>", calculate_pressed)
 
 window.mainloop()
