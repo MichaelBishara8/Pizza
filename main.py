@@ -2,7 +2,7 @@ import math
 import tkinter as tk
 
 
-def calculate_pressed(event):
+def calculate_pressed():
     med_size = float(medium_entry.get())
     lrg_size = float(large_entry.get())
     med_cost = float(medium_price_entry.get())
@@ -23,11 +23,11 @@ def calculate_pressed(event):
 
     # display percentages (only for larger with reset)
     if two_medium_area > lrg_area:
-        result_perc_lrg['text'] = ""
-        result_perc_med['text'] = "{0:.2f}%".format((result_med - 1) * 100)
+        result_percentage_lrg['text'] = ""
+        result_percentage_med['text'] = "{0:.2f}%".format((result_med - 1) * 100)
     else:
-        result_perc_med['text'] = ""
-        result_perc_lrg['text'] = "{0:.2f}%".format((result_lrg - 1) * 100)
+        result_percentage_med['text'] = ""
+        result_percentage_lrg['text'] = "{0:.2f}%".format((result_lrg - 1) * 100)
 
 
 def cm_to_inch(num):
@@ -95,12 +95,12 @@ large_cost_label = tk.Label(window, text="$0.00")
 large_cost_label.grid(row=6, column=3, pady=2)
 
 # Medium percent label and result
-result_perc_med = tk.Label(window, text="", fg='green')
-result_perc_med.grid(row=5, column=4, pady=2)
+result_percentage_med = tk.Label(window, text="", fg='green')
+result_percentage_med.grid(row=5, column=4, pady=2)
 
 # Large percent label and result
-result_perc_lrg = tk.Label(window, text="", fg='green')
-result_perc_lrg.grid(row=6, column=4, pady=2)
+result_percentage_lrg = tk.Label(window, text="", fg='green')
+result_percentage_lrg.grid(row=6, column=4, pady=2)
 
 # Calculate button
 calculate_button = tk.Button(text="Calculate", width=10)
