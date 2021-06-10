@@ -40,11 +40,23 @@ medium_label.grid(row=1, column=0, pady=2)
 large_label = tk.Label(window, text="Large (cm): ")
 large_label.grid(row=2, column=0, pady=2)
 
+medium_price = tk.Label(window, text="Price: ")
+medium_price.grid(row=1, column=2, pady=2)
+
+medium_price_entry = tk.Entry()
+medium_price_entry.grid(row=1, column=3, pady=2)
+
+large_price = tk.Label(window, text="Price: ")
+large_price.grid(row=2, column=2, pady=2)
+
+large_price_entry = tk.Entry()
+large_price_entry.grid(row=2, column=3, pady=2)
+
 medium_entry = tk.Entry()
-medium_entry.grid(row=1, column=1, pady=3)
+medium_entry.grid(row=1, column=1, pady=2)
 
 large_entry = tk.Entry()
-large_entry.grid(row=2, column=1, pady=3)
+large_entry.grid(row=2, column=1, pady=2)
 
 medium_area_label = tk.Label(window, text="Area of 2 Medium: ")
 medium_area_label.grid(row=5, column=0, pady=2)
