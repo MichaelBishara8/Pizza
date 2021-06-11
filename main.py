@@ -2,7 +2,7 @@ import math
 import tkinter as tk
 
 
-def calculate_pressed():
+def calculate_pressed(event):
     med_size = float(medium_entry.get())
     lrg_size = float(large_entry.get())
     med_cost = float(medium_price_entry.get())
@@ -41,6 +41,8 @@ def inch_to_cm(num):
 # initialize window
 window = tk.Tk()
 window.title("Pizza Comparison")
+# Window size is locked
+window.resizable(width=False, height=False)
 
 # set conversion radio buttons
 radio_value = tk.IntVar()
