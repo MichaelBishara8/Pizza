@@ -1,2 +1,2 @@
-# Alex
+# Pizza
 Pizza calculator
